@@ -1,36 +1,33 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+Finance Tracker 
 
-## Getting Started
+Este é um projeto de interface para uma aplicação de controle financeiro pessoal, desenvolvido com Next.js e React. A aplicação permite visualizar rapidamente os valores de entrada, saída e balanço financeiro, com uma interface limpa, moderna e responsiva.
 
-First, run the development server:
+Funcionalidades
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+- Exibição de valores de entrada, saída e balanço
+- Ícones personalizados para cada tipo de dado
+- Layout responsivo com estilo moderno
+- Componentização com React
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Estrutura
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+- `componentes/Card.tsx`: Componente reutilizável para os cartões financeiros
+- `componentes/Header.tsx`: Cabeçalho com título e imagem do cofrinho
+- `page.tsx`: Página principal que renderiza os componentes
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+Tecnologias
 
-## Learn More
+- React
+- Next.js
+- TypeScript
+- CSS-in-JS (inline styles)
 
-To learn more about Next.js, take a look at the following resources:
+Status
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+Este é apenas o início do projeto, focado na construção da interface visual. ao passar das semanas na disciplina de WebI irei construir o restante de acordo com o projeto apresentado pelo professor.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## 📷 Objetivo final será ficar de acordo com a interface apresentada pelo professor:
+https://framer.com/projects/Finance--rccDAOAKqqzfXpug8VPC-eY9i5
 
-## Deploy on Vercel
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
