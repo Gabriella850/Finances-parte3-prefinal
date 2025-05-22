@@ -1,64 +1,58 @@
 export default function Categorias() {
+  const categorias = [
+    { nome: 'Alimentação', numero: 10, valor: 'R$ 1508,15', icone: '/hamburger.svg' },
+    { nome: 'Mercado', numero: 8, valor: 'R$ 508,80', icone: '/carro.svg' },
+    { nome: 'Transporte', numero: 5, valor: 'R$ 800,00', icone: '/carro.svg' },
+    { nome: 'Lazer', numero: 6, valor: 'R$ 1200,00', icone: '/coqueiro.svg' },
+    { nome: 'Saúde', numero: 4, valor: 'R$ 950,00', icone: '/comprimido.svg' },
+    { nome: 'Educação', numero: 7, valor: 'R$ 1100,00', icone: '/educacao.svg' },
+  ];
+
   return (
     <div style={{ marginTop: '11px' }}>
-      <h3 style={{
-        fontSize: '0rem',  // Diminui o tamanho da fonte do título
-        color: '#b2bec3',
-        marginBottom: '15px'
-      }}></h3>
-
-      <div style={{ 
-        display: 'grid',
-        gridTemplateColumns: 'repeat(auto-fill, minmax(180px, 1fr))',  // Diminui a largura mínima dos cards
-        gap: '2px'  // Diminui o espaço entre os cards
-      }}>
-        {/* Item 1 */}
-        <div key="item-1" style={{ 
-          backgroundColor: '#2d3436',
-          borderRadius: '8px',
-          padding: '0.2px'  // Diminui o padding do card
-        }}>
-          <p style={{ 
-            color: '#fff', 
-            fontWeight: 'bold',
-            marginBottom: '1px',
-            fontSize: '0.8rem'  // Diminui o tamanho da fonte dentro do card
-          }}>Alimentação</p>
-          <p style={{ color: '#b2bec3', fontSize: '0.9rem' }}>10</p>  {/* Diminui o tamanho da fonte */}
-          <p style={{ color: '#e74c3c', fontSize: '0.9rem' }}>R$ 1508,15</p>  {/* Diminui o tamanho da fonte */}
-        </div>
-
-        {/* Item 2 */}
-        <div key="item-2" style={{ 
-          backgroundColor: '#2d3436',
-          borderRadius: '8px',
-          padding: '0.2px'  // Diminui o padding do card
-        }}>
-          <p style={{ 
-            color: '#fff', 
-            fontWeight: 'bold',
-            marginBottom: '1px',
-            fontSize: '0.8rem'  // Diminui o tamanho da fonte dentro do card
-          }}>Mercado</p>
-          <p style={{ color: '#b2bec3', fontSize: '0.9rem' }}>8</p>  {/* Diminui o tamanho da fonte */}
-          <p style={{ color: '#e74c3c', fontSize: '0.9rem' }}>R$ 508,80</p>  {/* Diminui o tamanho da fonte */}
-        </div>
-
-        {/* Itens 3-5 (repetidos conforme imagem) */}
-        {[3, 4, 5].map((item, index) => (
-          <div key={`item-${index + 3}`} style={{ 
-            backgroundColor: '#2d3436',
-            borderRadius: '8px',
-            padding: '0.2px'  // Diminui o padding do card
-          }}>
-            <p style={{ 
-              color: '#fff', 
-              fontWeight: 'bold',
-              marginBottom: '1px',
-              fontSize: '0.8rem'  // Diminui o tamanho da fonte dentro do card
-            }}>Alimentação</p>
-            <p style={{ color: '#b2bec3', fontSize: '0.9rem' }}>10</p>  {/* Diminui o tamanho da fonte */}
-            <p style={{ color: '#e74c3c', fontSize: '0.9rem' }}>R$ 1508,15</p>  {/* Diminui o tamanho da fonte */}
+      <div
+        style={{
+          display: 'grid',
+          gridTemplateColumns: 'repeat(auto-fill, 180px)',
+          gap: '6px',
+          justifyContent: 'start',
+        }}
+      >
+        {categorias.map((cat, idx) => (
+          <div
+            key={idx}
+            style={{
+              backgroundColor: '#2d3436',
+              borderRadius: '8px',
+              padding: '5px 8px',
+              display: 'flex',
+              alignItems: 'center',
+              gap: '6px',
+              height: '50px',
+              boxSizing: 'border-box',
+              width: '180px',
+            }}
+          >
+            <img
+              src={cat.icone}
+              alt={`${cat.nome} ícone`}
+              style={{ width: 18, height: 18, objectFit: 'contain' }}
+            />
+            <div>
+              <p
+                style={{
+                  color: '#fff',
+                  fontWeight: 'bold',
+                  marginBottom: '1px',
+                  fontSize: '0.8rem',
+                  lineHeight: 1.1,
+                }}
+              >
+                {cat.nome}
+              </p>
+              <p style={{ color: '#b2bec3', fontSize: '0.7rem', margin: 0 }}>{cat.numero}</p>
+              <p style={{ color: '#e74c3c', fontSize: '0.7rem', margin: 0 }}>{cat.valor}</p>
+            </div>
           </div>
         ))}
       </div>

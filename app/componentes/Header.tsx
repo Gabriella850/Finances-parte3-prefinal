@@ -1,20 +1,29 @@
-// app/componentes/Header.tsx
+"use client";
+
 import Image from "next/image";
+import { useState } from "react";
 
 export default function Header() {
-  return (
-    <header style={{ backgroundColor: '#2d3436', padding: '20px', textAlign: 'center' }}>
-      <h1 style={{ color: 'white', fontSize: '2.5rem' }}>Finance Tracker</h1>
-      <Image
-  src="/porquinhonovo.png"
-  alt="Cofrinho"
-  width={50}
-  height={50}
-  style={{ marginTop: '30px', 
-    marginLeft:'230px'
-  }}
-/>
+  const [hover, setHover] = useState(false);
 
-    </header>
+  return (
+    <div style={{ 
+  width: '70px',       // igual à largura da imagem
+  position: 'relative', // habilita o 'right' funcionar
+  right: '-470px',       // move pra direita, ajusta o valor pra o quanto quiser
+  display: 'flex',
+  alignItems: 'center',
+  justifyContent: 'center',
+  cursor: 'pointer'
+}}>
+      <Image
+        src={hover ? "/porquinho-branco.svg" : "/porquinho-verde.svg"}
+        alt="Porquinho"
+        width={70}
+        height={70}
+        onMouseEnter={() => setHover(true)}
+        onMouseLeave={() => setHover(false)}
+      />
+    </div>
   );
 }

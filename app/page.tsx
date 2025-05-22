@@ -14,21 +14,54 @@ export default function Home() {
     }}>
       <Header />
 
-      {/* Ícone de adicionar flutuante */}
+      {/* Ícones flutuantes lado a lado */}
       <div style={{ position: 'relative', height: '0' }}>
-        <img
-          src="/mais.png"
-          alt="Adicionar"
-          style={{
-            position: 'absolute',
-            right: '230px',
-            top: '-60px',
-            width: '40px',
-            height: '40px',
+        <div style={{
+          position: 'absolute',
+          right: '483px',
+          top: '-60px',
+          display: 'flex',
+          gap: '10px',
+          zIndex: 100
+        }}>
+          {/* Ícone de adicionar */}
+          <div style={{
+            width: '50px',
+            height: '50px',
+            backgroundColor: '#00b894',
+            borderRadius: '10px',
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'center',
             cursor: 'pointer',
-            zIndex: 100
-          }}
-        />
+            boxShadow: '0 4px 10px rgba(0, 0, 0, 0.3)'
+          }}>
+            <img
+              src="/circle-plus.svg"
+              alt="Adicionar"
+              style={{ width: '24px', height: '24px' }}
+            />
+          </div>
+
+          {/* Ícone da lua */}
+          <div style={{
+            width: '50px',
+            height: '50px',
+            backgroundColor: '#636e72',
+            borderRadius: '10px',
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'center',
+            cursor: 'pointer',
+            boxShadow: '0 4px 10px rgba(0, 0, 0, 0.3)'
+          }}>
+            <img
+              src="/moon.svg"
+              alt="Modo escuro"
+              style={{ width: '24px', height: '24px' }}
+            />
+          </div>
+        </div>
       </div>
 
       {/* Grade de Cards */}
@@ -52,7 +85,6 @@ export default function Home() {
             showIcon={true}
             iconType="default"
           />
-          
           <Card 
             title="Saída" 
             amount="-R$1.580,45" 
@@ -60,7 +92,6 @@ export default function Home() {
             showIcon={true}
             iconType="baixo"
           />
-          
           <Card 
             title="Balanço" 
             amount="R$6.260,11" 
@@ -71,22 +102,19 @@ export default function Home() {
         </div>
       </div>
 
-      {/* Seção de Análise e Categorias lado a lado */}
+      {/* Seção de Análise e Categorias */}
       <div style={{ 
         display: 'flex', 
         justifyContent: 'flex-start',
         marginTop: '30px'
       }}>
-        {/* Seção de Análise */}
         <div style={{ flex: '1 1 0%', maxWidth: '60%' }}>
           <Analise />
         </div>
-
-        {/* Seção de Categorias */}
         <div style={{ 
           width: '300px',
           marginLeft: '-25px',
-           marginTop: '58px' // <<< ADICIONE ESTA LINHA
+          marginTop: '58px'
         }}>
           <h2 style={{
             fontSize: '1.8rem',
@@ -110,15 +138,15 @@ export default function Home() {
       {/* Seção de Transações */}
       <div style={{ marginTop: '30px', marginBottom: '20px', textAlign: 'center' }}>
         <h2 style={{
-          fontSize: '1.8rem',  // Tamanho de fonte consistente com outros títulos
-          fontWeight: 'bold',  // Mantém o peso da fonte consistente
-          color: '#fff',  // Cor branca
-          marginBottom: '20px',  // Espaçamento abaixo do título
+          fontSize: '1.8rem',
+          fontWeight: 'bold',
+          color: '#fff',
+          marginBottom: '20px',
         }}>
           Transações
         </h2>
 
-        {/* Transações Header */}
+        {/* Cabeçalho das colunas */}
         <div style={{ 
           display: 'flex', 
           justifyContent: 'space-between', 
@@ -135,24 +163,49 @@ export default function Home() {
           <div style={{ flex: 1 }}>Parcelas</div>
         </div>
 
-        {/* Transações Details */}
+        {/* Lista de transações */}
         <div style={{ display: 'flex', flexDirection: 'column', gap: '10px' }}>
-          <div style={{ display: 'flex', justifyContent: 'space-between', backgroundColor: '#444', padding: '10px', borderRadius: '8px' }}>
-            <div style={{ flex: 1 }}>Supermercado Big Master</div>
-            <div style={{ flex: 1 }}>Crédito</div>
-            <div style={{ flex: 1 }}>R$896,00</div>
-            <div style={{ flex: 1 }}>Nubank</div>
-            <div style={{ flex: 1 }}>21/03/2024</div>
-            <div style={{ flex: 1 }}>2/2</div>
-          </div>
-          <div style={{ display: 'flex', justifyContent: 'space-between', backgroundColor: '#444', padding: '10px', borderRadius: '8px' }}>
-            <div style={{ flex: 1 }}>Supermercado Big Master</div>
-            <div style={{ flex: 1 }}>Crédito</div>
-            <div style={{ flex: 1 }}>R$896,00</div>
-            <div style={{ flex: 1 }}>Nubank</div>
-            <div style={{ flex: 1 }}>21/03/2024</div>
-            <div style={{ flex: 1 }}>1/2</div>
-          </div>
+          {[
+  { desc: 'Supermercado Big Master', tipo: 'Crédito', valor: 'R$896,00', banco: 'Nubank', data: '21/03/2024', parcelas: '2/2' },
+  { desc: 'Supermercado Big Master', tipo: 'Crédito', valor: 'R$896,00', banco: 'Nubank', data: '21/03/2024', parcelas: '1/2' },
+  { desc: 'Gasolina', tipo: 'Débito', valor: 'R$250,00', banco: 'Caixa', data: '19/03/2024', parcelas: '-' },
+  { desc: 'Farmácia São João', tipo: 'Crédito', valor: 'R$120,00', banco: 'Inter', data: '18/03/2024', parcelas: '1/3' },
+  { desc: 'Netflix', tipo: 'Débito', valor: 'R$39,90', banco: 'Nubank', data: '15/03/2024', parcelas: '-' },
+  { desc: 'iFood', tipo: 'Crédito', valor: 'R$89,99', banco: 'Bradesco', data: '14/03/2024', parcelas: '1/1' },
+  { desc: 'Padaria Pão Doce', tipo: 'Débito', valor: 'R$34,50', banco: 'Caixa', data: '13/03/2024', parcelas: '-' },
+  { desc: 'Cinema CineStar', tipo: 'Crédito', valor: 'R$45,00', banco: 'Inter', data: '12/03/2024', parcelas: '1/1' },
+  { desc: 'Rappi', tipo: 'Crédito', valor: 'R$72,30', banco: 'Nubank', data: '11/03/2024', parcelas: '1/1' },
+  { desc: 'Uber', tipo: 'Débito', valor: 'R$22,90', banco: 'Bradesco', data: '10/03/2024', parcelas: '-' },
+  { desc: 'Assinatura Spotify', tipo: 'Débito', valor: 'R$19,90', banco: 'Nubank', data: '09/03/2024', parcelas: '-' },
+  { desc: 'Livro Amazon', tipo: 'Crédito', valor: 'R$59,90', banco: 'Inter', data: '08/03/2024', parcelas: '1/2' },
+  { desc: 'Shopee', tipo: 'Crédito', valor: 'R$105,00', banco: 'Caixa', data: '07/03/2024', parcelas: '1/3' },
+  { desc: 'Recarga Celular', tipo: 'Débito', valor: 'R$30,00', banco: 'Nubank', data: '06/03/2024', parcelas: '-' },
+  { desc: 'Conta de Luz', tipo: 'Débito', valor: 'R$212,00', banco: 'Bradesco', data: '05/03/2024', parcelas: '-' },
+  { desc: 'Conta de Água', tipo: 'Débito', valor: 'R$95,80', banco: 'Inter', data: '04/03/2024', parcelas: '-' }
+].map((t, i) => (
+  <div key={i} style={{ 
+    display: 'flex', 
+    justifyContent: 'space-between', 
+    backgroundColor: '#444', 
+    padding: '10px', 
+    borderRadius: '8px',
+    marginBottom: '8px'
+  }}>
+    <div style={{ flex: 1, display: 'flex', alignItems: 'center', gap: '8px' }}>
+      <img 
+        src="/shopping-basket.svg" 
+        alt="Ícone de compra" 
+        style={{ width: '20px', height: '20px' }} 
+      />
+      {t.desc}
+    </div>
+    <div style={{ flex: 1 }}>{t.tipo}</div>
+    <div style={{ flex: 1 }}>{t.valor}</div>
+    <div style={{ flex: 1 }}>{t.banco}</div>
+    <div style={{ flex: 1 }}>{t.data}</div>
+    <div style={{ flex: 1 }}>{t.parcelas}</div>
+  </div>
+))}
         </div>
       </div>
     </div>
